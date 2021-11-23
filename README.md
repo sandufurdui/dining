@@ -4,7 +4,7 @@ To get started, run the dining.py from https://github.com/sandufurdui/dining
 then run kitchen from https://github.com/sandufurdui/dining (python kitchen.py)
 
 last commit in 40% branch has all set for 40% check </br>
--basic connection between 2 web servers(kitchen and dining)
+-basic connection between 2 web servers(kitchen and dining)</br>
 -sending json(menu.json) file between servers
 
 #Output
