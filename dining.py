@@ -1,22 +1,3 @@
-<<<<<<< Updated upstream
-
-import socket
-
-HOST = 'localhost'  # Standard loopback interface address (localhost)
-PORT = 1500       # Port to listen on 1500
-
-with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-    s.bind((HOST, PORT))
-    s.listen()
-    conn, addr = s.accept()
-    with conn:
-        print('Connection from ', addr , "(kitchen)")
-        while True:
-            data = conn.recv(1024)
-            if not data:
-                break
-            conn.sendall(data)
-=======
 # Import socket module
 import socket
 import json
@@ -45,8 +26,8 @@ def Main():
         "model": "Mustang",
         "year": 1964
     }
-    message1 = json.dumps(data1)
     message_dining = "this message is sent from dining"
+    message1 = message_dining + json.dumps(data1)
     while True:
 
         # message sent to server
@@ -70,4 +51,3 @@ def Main():
 if __name__ == '__main__':
     Main()
 
->>>>>>> Stashed changes
