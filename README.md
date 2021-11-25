@@ -9,11 +9,19 @@ Improved data exchange between kitchen and dining, now each can send dictionarie
 Implemented threading.
 
 #Output
-PS D:\Users\sandu\Desktop\Python\PR\dining> python dining.py
-Connection from  ('127.0.0.1', 60953) (kitchen)
+PS D:\Users\sandu\Desktop\Python\PR\dining> py .\dining.py              
+this is the message sent from kitchen
+{"brand": "chevrolet", "model": "camaro", "year": 2001}
 
-PS D:\Users\sandu\Desktop\Python\PR\kitchen> python .\kitchen.py        
-Received: b'dining hall up at localhost:1500'
+Do you want to continue(y/n) :n
+
+PS D:\Users\sandu\Desktop\Python\PR\kitchen> py .\kitchen.py
+socket binded to port 8000
+kitchen is listening
+this message is sent from dining
+{"brand": "Ford", "model": "Mustang", "year": 1964}
+
+closing connection
 
 
 
