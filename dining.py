@@ -22,14 +22,14 @@ def Main():
     
 
     
-    message_dining = "this message is sent from dining"
-    message1 = message_dining + json.dumps(data1)
+    #message_dining = "this message is sent from dining"
+    #message1 = message_dining + json.dumps(data1)
     i = 0
     while True:
         i += 1
         nitem = random.randint(1, max_dish)
         message1 = orderGenerator(i, nitem)
-        print(nitem)
+        #print(nitem)
         message = json.dumps(message1)
         # message sent to server
         s.send(message.encode("ascii"))
