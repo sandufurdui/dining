@@ -1,7 +1,7 @@
 # Import socket module
 import socket
 import json
-import sys
+from table import orderGenerator
 
 
 def Main():
@@ -26,6 +26,7 @@ def Main():
         "model": "Mustang",
         "year": 1964
     }
+    orderGenerator(1)
     message_dining = "this message is sent from dining"
     message1 = message_dining + json.dumps(data1)
     while True:
@@ -37,7 +38,7 @@ def Main():
         message_kitchen = s.recv(1024)
 
         # print the received message
-        print(str(message_kitchen.decode('ascii')))
+        # print(str(message_kitchen.decode('ascii')))
 
         # ask the client whether he wants to continue
         ans = input('\nDo you want to continue(y/n) :')
