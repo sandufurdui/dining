@@ -1,5 +1,5 @@
 import random
-
+import time
 
 class table:
     def __init__(this, id, name):
@@ -33,30 +33,25 @@ def tableGenerator():
 
     return table_list
 
-def dish():
+def dish(d_number):
     dish_list = []
     i = 1
-    while i <= dish_number:
+    while i <= d_number:
         dish_list.append(random.randint(1, max_dish))
         i += 1
         #print(dish_list)
 
     return dish_list
 
-items = dish()
-# def orderGenerator():
-#     i = 1
-#     order_list.append(order(order_id , 0 , random(1, 5), wait))
-#     order_list["items"] = dish
-#     return order_list
-
-def orderGenerator(id):
+def orderGenerator(id, n):
     i = 1
+    items = dish(n)
     order_list["id"] = id
     order_list["items"] = items
     order_list["priority"] = random.randint(1, 5)
     order_list["max_wait"] = random.randint(1, 300)
-
-    print(order_list)
+    
+    print(order_list) # print the order
+    time.sleep(1)
     return order_list
 
