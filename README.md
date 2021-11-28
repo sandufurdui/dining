@@ -9,7 +9,7 @@ Improved data exchange between kitchen and dining, now each can send dictionarie
 Implemented threading.
 
 Update.v.1.2
--added order generator
+-added order generator <br />
 -now each table, regardless of its status is generating order and sending directly to kitchen
 
 #Output
