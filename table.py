@@ -2,32 +2,23 @@ import random
 import time
 
 class table:
-    def __init__(this, id, name):
-        this.tableId = id
-        this.tableName = "table_" + str(name)
+    def __init__(this, table_id, status, order_id):
+        this.table_id = table_id
+        this.state = status
+        this.order_id = order_id
 
-# class order:
-#     def __init__(this, id, items, priority, max_wait):
-#         this.orderId = id
-#         this.items = items
-#         this.priority = priority
-#         this.max_wait = max_wait
-
+table_status = ["free", "making a order", "waiting for a order to be served"]
 table_list = []
 order_list = {}
-n_tables = 4
+n_tables = 10
 max_dish = 4
 
 def tableGenerator():
     i = 1
     while i <= n_tables:
-        table_list.append(table(i, i))
+        table_list.append(table(i, table_status[0], None))
         i += 1
-        # x = random.randint(1, max_dish)
-
-    # for test in table_list :
-    # print( test.tableId, test.tableName, sep =' ' )
-
+        print(table_list)
     return table_list
 
 def dish(d_number):
@@ -39,24 +30,6 @@ def dish(d_number):
         #print(dish_list)
 
     return dish_list
-    # for x in dishes:
-    #     match dishes:
-    #         case 1:
-    #             result += 20
-    #         case 2:
-    #             result += 10
-    #         case 3:
-    #             result += 7
-    #         case 4:
-    #             result += 32
-    #         case 5:
-    #             result += 35
-    #         case 6:
-    #             result += 10
-    #         case 7:
-    #             result += 20
-    #         case 8:
-    #             result += 30
 
 def calculate_max_wait(dishes):
     result = 0
@@ -100,14 +73,44 @@ def calculate_max_wait(dishes):
 
 
 def orderGenerator(id, n):
-    i = 1
     items = dish(n)
     order_list["id"] = id
     order_list["items"] = items
     order_list["priority"] = random.randint(1, 5)
     order_list["max_wait"] = calculate_max_wait(items)
-    
-    #print(items) # print the order
+    order_list["pick_time"] = time.time()
+
     time.sleep(1)
     return order_list
 
+def appendOrderToTable(tables, order_id):
+    nitem = random.randint(1, max_dish)
+    order = orderGenerator(order_id, nitem)
+    order_list["table_id"] = tables.table_id
+    tables.state = table_status[1]
+    tables.order_id = id
+    time.sleep(1)
+    return order
+
+def tableMain(order_id):
+    i = c = 1
+    table_list.append(table(1, table_status[0], None))
+    table_list.append(table(2, table_status[0], None))
+    table_list.append(table(3, table_status[0], None))
+    table_list.append(table(4, table_status[0], None))
+    table_list.append(table(5, table_status[0], None))
+    table_list.append(table(6, table_status[0], None))
+    table_list.append(table(7, table_status[0], None))
+    table_list.append(table(8, table_status[0], None))
+    table_list.append(table(9, table_status[0], None))
+    table_list.append(table(10, table_status[0], None))
+
+    for tables in table_list:
+        c +=1
+        if tables.state == table_status[0]:
+            order = appendOrderToTable(tables, order_id)
+            return order
+        if tables.state == table_status[1]:
+            print("state 1")
+        if  tables.state == table_status[2]:
+            print("state 2")

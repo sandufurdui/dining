@@ -1,12 +1,16 @@
 # Dining
 To get started, run the dining.py from https://github.com/sandufurdui/dining
 (if you have installed locally python, run python dining.py)
-then run kitchen from https://github.com/sandufurdui/dining (python kitchen.py)
+then run kitchen from https://github.com/sandufurdui/kitchen (python kitchen.py)
 
 
 Update
 Improved data exchange between kitchen and dining, now each can send dictionaries(aka json)
 Implemented threading.
+
+Update.v.1.2
+-added order generator
+-now each table, regardless of its status is generating order and sending directly to kitchen
 
 #Output
 PS D:\Users\sandu\Desktop\Python\PR\dining> py .\dining.py              
